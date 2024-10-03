@@ -7,8 +7,8 @@ public class TugasPemilihan2 {
     public static void main(String[] args) {
         Scanner sc16 = new Scanner(System.in);
         String jenis;
-        double diskon, hargaDiskon;
-        int jumlah, harga = 20000;
+        double diskon;
+        int jumlah, harga = 20000, hargaDiskon;
         System.out.print("Masukkan jenis buku : ");
         jenis = sc16.nextLine();
         System.out.print("Masukkan jumlah buku : ");
@@ -33,7 +33,7 @@ public class TugasPemilihan2 {
             diskon = 0.0;
         }
         diskon = harga * diskon;
-        hargaDiskon = harga - diskon;
+        hargaDiskon = (int) (harga - diskon);
         System.out.println("Diskon : " + diskon);
         System.out.println("Total harga : " + hargaDiskon);
     }
