@@ -6,8 +6,8 @@ public class Pemilihan2Percobaan216 {
 
     public static void main(String[] args) {
         Scanner sc16 = new Scanner(System.in);
-        int pilihan_menu, harga;
-        String member;
+        int pilihan_menu, harga, potonganQris = 1000;
+        String member, metodePembayaran;
         double diskon, total_bayar;
         System.out.println("-------------------------");
         System.out.println("===== MENU KAFE JTI =====");
@@ -21,7 +21,14 @@ public class Pemilihan2Percobaan216 {
         sc16.nextLine();
         System.out.print("Apakah punya member (y/n) ? = ");
         member = sc16.nextLine();
+        System.out.print("Metode pembayaran (Qris/Tunai) ? = ");
+        metodePembayaran = sc16.nextLine();
         System.out.println("---------------------------------------");
+        if (metodePembayaran.equalsIgnoreCase("qris")) {
+            potonganQris = 1000;
+        } else {
+            potonganQris = 0;
+        }
         if (member.equalsIgnoreCase("y")) { //Menggunakan equalsIgnoreCase untuk membandingkan String
             diskon = 0.10;
             System.out.println("Besar Diskon = 10%");
@@ -42,8 +49,9 @@ public class Pemilihan2Percobaan216 {
                 return; // Menghentikan eksekusi lebih lanjut jika pilihan salah
             }
             // Menghitung total bayar setelah diskon
-            total_bayar = harga - (harga*diskon);
-            System.out.println("Total bayar setelah diskon = " + total_bayar);
+            total_bayar = harga - (harga*diskon) - potonganQris;
+            System.out.println("Potongan dari Qris = " + potonganQris);
+            System.out.println("Total bayar = " + total_bayar);
         }
         else if (member.equalsIgnoreCase("n")) { // Menggunakan equalsIgnoreCase untuk membandingkan String
             if (pilihan_menu == 1) {
@@ -63,6 +71,7 @@ public class Pemilihan2Percobaan216 {
                 return; // Menghentikan eksekusi lebih lanjut jika pilihan salah
             }
             // Menghitung total bayar
+            harga = harga - potonganQris;
             System.out.println("Total bayar = " + harga);
         } else {
             System.out.println("Member tidak valid");
